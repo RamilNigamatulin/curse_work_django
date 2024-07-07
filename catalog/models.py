@@ -6,7 +6,7 @@ class Category(models.Model):
         verbose_name='Наименование категории',
         help_text='Введите наименование категории товара'
     )
-    description =  models.TextField(
+    description = models.TextField(
         max_length=1000,
         verbose_name='Описание продукта',
         help_text='Введите описание продукта'

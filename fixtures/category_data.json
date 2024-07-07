@@ -1,0 +1,26 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 62,
+    "fields": {
+      "name": "Мясная продукция",
+      "description": "содержащие мысо продукты"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 63,
+    "fields": {
+      "name": "молочная продукция",
+      "description": "содержащее молоко продукты БЗМЖ"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 64,
+    "fields": {
+      "name": "Рыбная продукция",
+      "description": "содержащая рыбу продукция"
+    }
+  }
+]
