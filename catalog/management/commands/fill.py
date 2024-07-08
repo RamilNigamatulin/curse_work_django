@@ -33,7 +33,8 @@ class Command(BaseCommand):
             category_for_create.append(
                 Category(
                     name=category['fields']['name'],
-                    description=category['fields']['description']
+                    description=category['fields']['description'],
+                    pk=category['pk'],
                 )
             )
 
@@ -50,7 +51,8 @@ class Command(BaseCommand):
                     image=product['fields']['image'],
                     created_at=product['fields']['created_at'],
                     updated_at=product['fields']['updated_at'],
-                    category=Category.objects.get(pk=product['pk']),
+                    category=Category.objects.get(pk=category['pk']),
+                    manufactured_at=product['fields']['manufactured_at'],
                 )
             )
 
