@@ -1,1 +1,1 @@
-# curse_work_django
+# course_work_django
