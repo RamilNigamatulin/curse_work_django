@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Category(models.Model):
     name = models.CharField(
         max_length=200,
@@ -19,6 +20,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
 class Product(models.Model):
 
     name = models.CharField(
@@ -32,7 +34,7 @@ class Product(models.Model):
         help_text='Введите описание продукта'
     )
     image = models.ImageField(
-        upload_to='photo/image',
+        upload_to='photo/product',
         blank=True,
         null=True,
         verbose_name='Фото продукта',
@@ -65,10 +67,3 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
-
-
-
-
-
-
-

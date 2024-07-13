@@ -1,18 +1,24 @@
-from django.core.management import BaseCommand
-from catalog.models import Product, Category
 import json
+
+from django.core.management import BaseCommand
+
+from catalog.models import Product, Category
+
+
 class Command(BaseCommand):
 
     @staticmethod
     def json_read_categories():
-        # Открываем файл с фикстурами категорий и загружаем данные в формате JSON
+        # Открываем файл с фикстурами категорий и загружаем данные в формате
+        # JSON
         with open('fixtures/category_data.json', 'r', encoding='utf-8') as file:
             categories = json.load(file)
         return categories
 
     @staticmethod
     def json_read_products():
-        # Открываем файл с фикстурами продуктов и загружаем данные в формате JSON
+        # Открываем файл с фикстурами продуктов и загружаем данные в формате
+        # JSON
         with open('fixtures/product_data.json', 'r', encoding='utf-8') as file:
             products = json.load(file)
         return products
@@ -27,8 +33,8 @@ class Command(BaseCommand):
         product_for_create = []
         category_for_create = []
 
-
-        # Обходим все значения категорий из фикстуры для получения информации об одном объекте
+        # Обходим все значения категорий из фикстуры для получения информации
+        # об одном объекте
         for category in Command.json_read_categories():
             category_for_create.append(
                 Category(
@@ -41,7 +47,8 @@ class Command(BaseCommand):
         # Создаем объекты категорий в базе с помощью метода bulk_create()
         Category.objects.bulk_create(category_for_create)
 
-        # Обходим все значения продуктов из фикстуры для получения информации об одном объекте
+        # Обходим все значения продуктов из фикстуры для получения информации
+        # об одном объекте
         for product in Command.json_read_products():
             product_for_create.append(
                 Product(
