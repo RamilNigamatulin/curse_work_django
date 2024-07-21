@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Category(models.Model):
@@ -58,7 +59,8 @@ class Product(models.Model):
     )
     manufactured_at = models.DateTimeField(
         verbose_name='Дата произодства',
-        help_text='Введите дату производства продукта'
+        help_text='Введите дату производства продукта',
+        default=timezone.now,
     )
 
     class Meta:
