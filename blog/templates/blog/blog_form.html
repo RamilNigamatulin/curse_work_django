@@ -2,23 +2,27 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <div class="col-">
+        <div class="col-6">
             <form class="row" method="post" enctype="multipart/form-data">
                 <div class="card">
+                    <div class="title">
+                        <h3 class="mb-0">Добавление нового блога</h3>
+                    </div>
                     <div class="card-body">
                         {% csrf_token %}
                         {{ form.as_p }}
                     </div>
                     <button type="submit" class="btn btn-primary">
                         {% if object %}
-                            Сохранить
+                        Сохранить
                         {% else %}
-                            Создать
+                        Создать
                         {% endif %}
                     </button>
                 </div>
             </form>
         </div>
+
     </div>
 </div>
 {% endblock %}

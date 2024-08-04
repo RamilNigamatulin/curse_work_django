@@ -6,6 +6,7 @@ from pytils.translit import slugify
 
 logger = logging.getLogger(__name__)
 
+
 class BlogCreateView(CreateView):
     model = Blog
     fields = ('title', 'content', 'preview',)
