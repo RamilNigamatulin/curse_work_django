@@ -52,10 +52,12 @@ class Product(models.Model):
         help_text='Введите цену продукта'
     )
     created_at = models.DateTimeField(
-        verbose_name='Дата создания(записи в БД)'
+        verbose_name='Дата создания(записи в БД)',
+        default=timezone.now,
     )
     updated_at = models.DateTimeField(
-        verbose_name='Дата последнего изменения(записи в БД)'
+        verbose_name='Дата последнего изменения(записи в БД)',
+        default=timezone.now,
     )
     manufactured_at = models.DateTimeField(
         verbose_name='Дата произодства',
@@ -69,3 +71,35 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Version(models.Model):
+    product = models.ForeignKey(
+        Product,
+        related_name='versions',
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        verbose_name='Продукт',
+    )
+    version_number = models.PositiveIntegerField(
+        verbose_name='Номер версии',
+        help_text='Введите номер версии продукта',
+    )
+    version_name = models.CharField(
+        verbose_name='Имя версии',
+        max_length=200,
+        help_text='Введите имя версии продукта',
+    )
+    current_sign = models.BooleanField(
+        default=False,
+        verbose_name='Признак текущей версии',
+    )
+
+    class Meta:
+        verbose_name = 'Версия'
+        verbose_name_plural = 'Версии'
+
+    def __str__(self):
+        return self.version_name
+
