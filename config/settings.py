@@ -20,7 +20,6 @@ INSTALLED_APPS = [
 
     'catalog',
     'blog',
-    'mailing',
     'debug_toolbar',
 ]
 
