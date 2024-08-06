@@ -11,7 +11,7 @@ from django.contrib import messages
 class ProductCreateView(CreateView):
     model = Product
     form_class = ProductForm
-    success_url = reverse_lazy('catalog:product_create')
+    success_url = reverse_lazy('catalog:product_list')
 
 
 class ProductDetailView(DetailView):
