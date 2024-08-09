@@ -3,6 +3,7 @@ psycopg2-binary==2.9.9
 ipython==8.26.0
 pillow==10.4.0
 pytils
+phonenumbers==8.13.42
 
 
 
